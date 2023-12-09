@@ -49,6 +49,7 @@ public class ClientController {
 		
 		client.setName(clientUpdate.getName());
 		client.setEmail(clientUpdate.getEmail());
+		client.setPassword(clientUpdate.getPassword());
 		
 		clientService.saveClient(client);
 		

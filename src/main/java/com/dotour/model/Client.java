@@ -22,6 +22,9 @@ public class Client {
 	@Column(name = "client_email", length =  100, nullable = false)
 	private String email;
 	
+
+	@Column(name = "client_password", length = 100, nullable = false)
+	private String password;
 	
 
 
@@ -49,6 +52,15 @@ public class Client {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+	public String getPassword() {
+		return this.password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 	
 	
 }

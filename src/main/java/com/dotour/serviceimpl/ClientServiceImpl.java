@@ -40,6 +40,7 @@ public class ClientServiceImpl implements ClientService {
 		Client clientExists = clientrepositoy.findById(id).orElseThrow(() -> new RuntimeException("ID: " + id + "Not Found"));
 		clientExists.setName(clientUpdate.getName());
 		clientExists.setEmail(clientUpdate.getEmail());
+		clientExists.setPassword(clientUpdate.getPassword());
 		return clientrepositoy.save(clientExists);
 	}
 
