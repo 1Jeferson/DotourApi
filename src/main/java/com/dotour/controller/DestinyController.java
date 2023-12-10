@@ -34,14 +34,14 @@ public class DestinyController {
         @ApiResponse(responseCode = "400", description = "Falha ao cadastrar um novo destino.")
     })
     @PostMapping("/savedestiny")
-    public Destiny createDestiny(@RequestBody Destiny destiny) {
+    public Destiny Criar(@RequestBody Destiny destiny) {
         return destinyService.saveDestiny(destiny);
     }
 
 
     @Operation(description = "Obtém todos os destinos já cadastrados.")
     @GetMapping("/alldestinies")
-    public List<Destiny> getAllDestinies() {
+    public List<Destiny> Listar() {
         return destinyService.getAllDestinies();
     }
 
@@ -49,10 +49,10 @@ public class DestinyController {
     @Operation(description = "Busca o destino pelo ID.")
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "Retorna o destino buscado."),
-        @ApiResponse(responseCode = "400", description = "ID informado não existe.")
+        @ApiResponse(responseCode = "500", description = "ID informado não existe.")
     })
     @GetMapping("/{id}")
-    public ResponseEntity<Destiny> getDestinyById(@PathVariable Long id) {
+    public ResponseEntity<Destiny> Buscar(@PathVariable Long id) {
         Destiny destiny = destinyService.getDestinyById(id);
         return ResponseEntity.ok(destiny);
     }
@@ -60,7 +60,7 @@ public class DestinyController {
 
     @Operation(description = "Atualiza um destino existente pelo ID, passando todos os campos que irão ser atualizados.")
     @PutMapping("/{id}")
-    public ResponseEntity<Destiny> updateDestiny(@PathVariable Long id, @RequestBody Destiny destinyUpdate) {
+    public ResponseEntity<Destiny> Atualzar(@PathVariable Long id, @RequestBody Destiny destinyUpdate) {
         Destiny destiny = destinyService.getDestinyById(id);
 
         destiny.setDestiny(destinyUpdate.getDestiny());
@@ -80,7 +80,7 @@ public class DestinyController {
         @ApiResponse(responseCode = "200", description = "Destino excluido pelo ID com sucesso.")
     })
     @DeleteMapping("/{id}")
-    public void deleteDestiny(@PathVariable Long id) {
+    public void Deletar(@PathVariable Long id) {
         destinyService.deleteById(id);
     }
     

@@ -34,23 +34,23 @@ public class ClientController {
 		@ApiResponse(responseCode = "400", description = "Falha ao cadastrar um cliente.")
 	})
 	@PostMapping("/saveclient")
-	public Client createClient(@RequestBody Client client) {
+	public Client Criar(@RequestBody Client client) {
 		return clientService.saveClient(client);
 	}
 	
 	@Operation(description = "Obtém todos os clientes cadastrados.")
 	@GetMapping("/allclients")
-	public List<Client> getAllClients() {
+	public List<Client> Listar() {
 		return clientService.getAllClients();
 	}
 	
 	@Operation(description = "Busca o cliente pelo ID.")
 	@ApiResponses(value = {
 		@ApiResponse(responseCode = "200", description = "Retorna o cliente."),
-		@ApiResponse(responseCode = "400", description = "ID informado não existe.")
+		@ApiResponse(responseCode = "500", description = "ID informado não existe.")
 	})
 	@GetMapping("/{id}")
-	public ResponseEntity<Client> getClientById(@PathVariable Long id) {
+	public ResponseEntity<Client> Buscar(@PathVariable Long id) {
 		Client client = clientService.getClientById(id);
 		return ResponseEntity.ok(client);
 	}
@@ -58,7 +58,7 @@ public class ClientController {
 	
 	@Operation(description =  "Atualiza um cliente existente pelo ID, passando todos os campos que irão ser atualizados.")
 	@PutMapping("/{id}")
-	public ResponseEntity<Client> updateClient(@PathVariable Long id, @RequestBody Client clientUpdate) {
+	public ResponseEntity<Client> Atualzar(@PathVariable Long id, @RequestBody Client clientUpdate) {
 		Client client = clientService.getClientById(id);
 		
 		client.setName(clientUpdate.getName());
@@ -76,7 +76,7 @@ public class ClientController {
 		@ApiResponse(responseCode = "200", description = "Cliente excluido pelo ID com sucesso.")
 	})
 	@DeleteMapping("/{id}")
-	public void deleteClient(@PathVariable Long id) {
+	public void Deletar(@PathVariable Long id) {
 		clientService.deleteById(id);
 	}
 	
