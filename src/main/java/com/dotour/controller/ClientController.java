@@ -16,6 +16,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.dotour.model.Client;
 import com.dotour.service.ClientService;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+
 @RestController
 @RequestMapping("/client")
 public class ClientController {
@@ -24,18 +28,27 @@ public class ClientController {
 	@Autowired
 	private ClientService clientService;
 	
-	
+	@Operation(description = "Cria um novo cliente informando todos os campos.")
+	@ApiResponses(value = {
+		@ApiResponse(responseCode = "200", description = "Cliente criado com sucesso."),
+		@ApiResponse(responseCode = "400", description = "Falha ao cadastrar um cliente.")
+	})
 	@PostMapping("/saveclient")
 	public Client createClient(@RequestBody Client client) {
 		return clientService.saveClient(client);
 	}
 	
+	@Operation(description = "Obtém todos os clientes cadastrados.")
 	@GetMapping("/allclients")
 	public List<Client> getAllClients() {
 		return clientService.getAllClients();
 	}
 	
-	
+	@Operation(description = "Busca o cliente pelo ID.")
+	@ApiResponses(value = {
+		@ApiResponse(responseCode = "200", description = "Retorna o cliente."),
+		@ApiResponse(responseCode = "400", description = "ID informado não existe.")
+	})
 	@GetMapping("/{id}")
 	public ResponseEntity<Client> getClientById(@PathVariable Long id) {
 		Client client = clientService.getClientById(id);
@@ -43,6 +56,7 @@ public class ClientController {
 	}
 	
 	
+	@Operation(description =  "Atualiza um cliente existente pelo ID, passando todos os campos que irão ser atualizados.")
 	@PutMapping("/{id}")
 	public ResponseEntity<Client> updateClient(@PathVariable Long id, @RequestBody Client clientUpdate) {
 		Client client = clientService.getClientById(id);
@@ -57,6 +71,10 @@ public class ClientController {
 	}
 	
 	
+	@Operation(description = "Exclui um cliente pelo ID.")
+	@ApiResponses(value = {
+		@ApiResponse(responseCode = "200", description = "Cliente excluido pelo ID com sucesso.")
+	})
 	@DeleteMapping("/{id}")
 	public void deleteClient(@PathVariable Long id) {
 		clientService.deleteById(id);
