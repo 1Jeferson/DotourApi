@@ -12,7 +12,7 @@ Para começar a utilizar , dê start na aplicação no Spring Tools e acesse [Sw
 
 [![Run in Insomnia](https://insomnia.rest/images/run.svg)](insomnia://run/?label=Your%20API&uri=file%3A%2F%2F%2Fpath%2Fto%2Fyour%2Fproject%2FDados%20Insomnia%2FDados_Api_Insomnia.json)
 
-[Link para o arquivo JSON no projeto](./Dados%20Insomnia/Dados_Api_Insomnia.json)
+[Link para o arquivo do Insomnia no projeto](./Dados%20Insomnia/Dados_Api_Insomnia.json)
 
 
 ## ClientController
