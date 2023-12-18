@@ -114,6 +114,8 @@ POST /purshace/savepurshace
 | Parâmetro   | Tipo       | Descrição                           |
 | :---------- | :--------- | :---------------------------------- |
 | `datePurshace` | `date` | Data da compra |
+| `dateDeparture` | `date` | Data de Ida |
+| `numReturn` | `date` | Data de Volta |
 | `numOrder` | `number` | Número do pedido da compra |
 | `id_client` | `number` |  **Obrigatório**. Número do id do cliente já existente |
 | `nome` | `string` | **Obrigatório**. Nome do cliente já existente |
@@ -142,6 +144,8 @@ PUT /purshace/{id}
 | Parâmetro   | Tipo       | Descrição                           |
 | :---------- | :--------- | :---------------------------------- |
 | `datePurshace` | `date` | Data da compra que será atualizada |
+| `dateDeparture` | `date` | Data de Ida |
+| `numReturn` | `date` | Data de Volta |
 | `numOrder` | `number` | Número do pedido da compra que será atualizado |
 | `id_client` | `number` |  **Obrigatório**. Número do id do cliente já existente |
 | `nome` | `string` | **Obrigatório**. Nome do cliente já existente |
@@ -154,7 +158,7 @@ PUT /purshace/{id}
 | `price` | `number` |  **Obrigatório**. Informe um preço já existente |
 
 
-### Deletar uma Compra
+### Cancelar uma Compra
 ```http
 DELETE /purshace/{id}
 ```
