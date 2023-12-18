@@ -22,7 +22,7 @@ POST /client/saveclient
 
 
 ### Buscar um Cliente
-```
+```http
 GET /client/{id}
 ```
 | Parâmetro   | Tipo       | Descrição                           |
@@ -31,7 +31,7 @@ GET /client/{id}
 
 
 ### Atualizar um Cliente
-```
+```http
 PUT /client/{id}
 ```
 | Parâmetro   | Tipo       | Descrição                           |
@@ -41,7 +41,7 @@ PUT /client/{id}
 | `senha` | `string` | Informe uma nova senha |
 
 ### Deletar um Cliente
-```
+```http
 DELETE /client/{id}
 ```
 | Parâmetro   | Tipo       | Descrição                           |
@@ -67,7 +67,7 @@ POST /destiny/savedestiny
 
 
 ## Buscar um Destino
-```
+```http
 GET /destiny/{id}
 ```
 | Parâmetro   | Tipo       | Descrição                           |
@@ -76,7 +76,7 @@ GET /destiny/{id}
 
 
 ## Atualizar um Destino
-```
+```http
 PUT /destiny/{id}
 ```
 | Parâmetro   | Tipo       | Descrição                           |
@@ -88,7 +88,7 @@ PUT /destiny/{id}
 
 
 ## Deletar um Destino
-```
+```http
 DELETE /destiny/{id}
 ```
 | Parâmetro   | Tipo       | Descrição                           |
@@ -120,7 +120,7 @@ POST /purshace/savepurshace
 
 
 ### Buscar um Destino
-```
+```http
 GET /purshace/{id}
 ```
 | Parâmetro   | Tipo       | Descrição                           |
@@ -129,7 +129,7 @@ GET /purshace/{id}
 
 
 ### Atualizar uma Compra
-```
+```http
 PUT /purshace/{id}
 ```
 | Parâmetro   | Tipo       | Descrição                           |
@@ -148,7 +148,7 @@ PUT /purshace/{id}
 
 
 ### Deletar uma Compra
-```
+```http
 DELETE /purshace/{id}
 ```
 | Parâmetro   | Tipo       | Descrição                           |
