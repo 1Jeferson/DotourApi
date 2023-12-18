@@ -26,13 +26,13 @@ public class DestinyServiceImpl implements DestinyService {
     @Override
     @Transactional
     public Destiny getDestinyById(Long id) {
-        
+
         return destinyRepository.findById(id).orElse(null);
     }
 
     @Override
     public Destiny saveDestiny(Destiny destiny) {
-      
+
         return destinyRepository.save(destiny);
     }
 
@@ -48,7 +48,7 @@ public class DestinyServiceImpl implements DestinyService {
 
     @Override
     public void deleteById(Long id) {
-       destinyRepository.deleteById(id);
+        destinyRepository.deleteById(id);
     }
 
 }

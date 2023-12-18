@@ -12,12 +12,10 @@ import jakarta.persistence.OneToMany;
 
 @Entity
 public class Destiny {
-    
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
 
     @Column(name = "name_destiny", length = 100, nullable = false)
     private String destiny;
@@ -31,7 +29,6 @@ public class Destiny {
 
     @OneToMany(mappedBy = "destiny", fetch = FetchType.LAZY)
     private Set<Purshace> purshaces;
-
 
     public Long getId() {
         return this.id;

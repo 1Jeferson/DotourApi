@@ -5,7 +5,6 @@ import org.springframework.stereotype.Repository;
 
 import com.dotour.model.Client;
 
-
 @Repository
 public interface ClientRepository extends JpaRepository<Client, Long> {
 

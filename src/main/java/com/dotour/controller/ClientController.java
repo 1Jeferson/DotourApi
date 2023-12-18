@@ -24,62 +24,57 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 @RequestMapping("/client")
 public class ClientController {
 
-	
 	@Autowired
 	private ClientService clientService;
-	
+
 	@Operation(description = "Cria um novo cliente informando todos os campos.")
 	@ApiResponses(value = {
-		@ApiResponse(responseCode = "200", description = "Cliente criado com sucesso."),
-		@ApiResponse(responseCode = "400", description = "Falha ao cadastrar um cliente.")
+			@ApiResponse(responseCode = "200", description = "Cliente criado com sucesso."),
+			@ApiResponse(responseCode = "400", description = "Falha ao cadastrar um cliente.")
 	})
 	@PostMapping("/saveclient")
 	public Client Register(@RequestBody Client client) {
 		return clientService.saveClient(client);
 	}
-	
+
 	@Operation(description = "Obtém todos os clientes cadastrados.")
 	@GetMapping("/allclients")
 	public List<Client> List() {
 		return clientService.getAllClients();
 	}
-	
+
 	@Operation(description = "Busca o cliente pelo ID.")
 	@ApiResponses(value = {
-		@ApiResponse(responseCode = "200", description = "Retorna o cliente."),
-		@ApiResponse(responseCode = "500", description = "ID informado não existe.")
+			@ApiResponse(responseCode = "200", description = "Retorna o cliente."),
+			@ApiResponse(responseCode = "500", description = "ID informado não existe.")
 	})
 	@GetMapping("/{id}")
 	public ResponseEntity<Client> Search(@PathVariable Long id) {
 		Client client = clientService.getClientById(id);
 		return ResponseEntity.ok(client);
 	}
-	
-	
-	@Operation(description =  "Atualiza um cliente existente pelo ID, passando todos os campos que irão ser atualizados.")
+
+	@Operation(description = "Atualiza um cliente existente pelo ID, passando todos os campos que irão ser atualizados.")
 	@PutMapping("/{id}")
 	public ResponseEntity<Client> Update(@PathVariable Long id, @RequestBody Client clientUpdate) {
 		Client client = clientService.getClientById(id);
-		
+
 		client.setName(clientUpdate.getName());
 		client.setEmail(clientUpdate.getEmail());
 		client.setPassword(clientUpdate.getPassword());
-		
+
 		clientService.saveClient(client);
-		
+
 		return ResponseEntity.ok(client);
 	}
-	
-	
+
 	@Operation(description = "Exclui um cliente pelo ID.")
 	@ApiResponses(value = {
-		@ApiResponse(responseCode = "200", description = "Cliente excluido pelo ID com sucesso.")
+			@ApiResponse(responseCode = "200", description = "Cliente excluido pelo ID com sucesso.")
 	})
 	@DeleteMapping("/{id}")
 	public void Delete(@PathVariable Long id) {
 		clientService.deleteById(id);
 	}
-	
-	
-	
+
 }

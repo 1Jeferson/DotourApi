@@ -27,17 +27,15 @@ public class DestinyController {
     @Autowired
     private DestinyService destinyService;
 
-    
     @Operation(description = "Cria um novo destino informando todos os campos.")
     @ApiResponses(value = {
-        @ApiResponse(responseCode = "200", description = "Destino criado com sucesso."),
-        @ApiResponse(responseCode = "400", description = "Falha ao cadastrar um novo destino.")
+            @ApiResponse(responseCode = "200", description = "Destino criado com sucesso."),
+            @ApiResponse(responseCode = "400", description = "Falha ao cadastrar um novo destino.")
     })
     @PostMapping("/savedestiny")
     public Destiny Register(@RequestBody Destiny destiny) {
         return destinyService.saveDestiny(destiny);
     }
-
 
     @Operation(description = "Obtém todos os destinos já cadastrados.")
     @GetMapping("/alldestinies")
@@ -45,18 +43,16 @@ public class DestinyController {
         return destinyService.getAllDestinies();
     }
 
-
     @Operation(description = "Busca o destino pelo ID.")
     @ApiResponses(value = {
-        @ApiResponse(responseCode = "200", description = "Retorna o destino buscado."),
-        @ApiResponse(responseCode = "500", description = "ID informado não existe.")
+            @ApiResponse(responseCode = "200", description = "Retorna o destino buscado."),
+            @ApiResponse(responseCode = "500", description = "ID informado não existe.")
     })
     @GetMapping("/{id}")
     public ResponseEntity<Destiny> Buscar(@PathVariable Long id) {
         Destiny destiny = destinyService.getDestinyById(id);
         return ResponseEntity.ok(destiny);
     }
-
 
     @Operation(description = "Atualiza um destino existente pelo ID, passando todos os campos que irão ser atualizados.")
     @PutMapping("/{id}")
@@ -73,15 +69,13 @@ public class DestinyController {
         return ResponseEntity.ok(destiny);
     }
 
-
-
     @Operation(description = "Exclui um destino pelo ID.")
     @ApiResponses(value = {
-        @ApiResponse(responseCode = "200", description = "Destino excluido pelo ID com sucesso.")
+            @ApiResponse(responseCode = "200", description = "Destino excluido pelo ID com sucesso.")
     })
     @DeleteMapping("/{id}")
     public void Delete(@PathVariable Long id) {
         destinyService.deleteById(id);
     }
-    
+
 }

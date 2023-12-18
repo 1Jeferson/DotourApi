@@ -14,27 +14,25 @@ import jakarta.transaction.Transactional;
 @Service
 public class ClientServiceImpl implements ClientService {
 
-	
 	@Autowired
 	private ClientRepository clientrepositoy;
-	
-	
+
 	@Override
 	public List<Client> getAllClients() {
-	
+
 		return clientrepositoy.findAll();
 	}
 
 	@Override
 	@Transactional
 	public Client getClientById(Long id) {
-		
+
 		return clientrepositoy.findById(id).orElse(null);
 	}
 
 	@Override
 	public Client saveClient(Client client) {
-		
+
 		return clientrepositoy.save(client);
 	}
 
@@ -50,7 +48,7 @@ public class ClientServiceImpl implements ClientService {
 	@Override
 	public void deleteById(Long id) {
 		clientrepositoy.deleteById(id);
-		
+
 	}
 
 }

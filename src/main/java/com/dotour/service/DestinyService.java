@@ -5,7 +5,7 @@ import java.util.List;
 import com.dotour.model.Destiny;
 
 public interface DestinyService {
-    
+
     List<Destiny> getAllDestinies();
 
     Destiny getDestinyById(Long id);

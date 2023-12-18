@@ -7,5 +7,5 @@ import com.dotour.model.Destiny;
 
 @Repository
 public interface DestinyRepository extends JpaRepository<Destiny, Long> {
-    
+
 }

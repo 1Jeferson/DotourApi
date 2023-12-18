@@ -28,7 +28,7 @@ public class PurshaceController {
 	private PurshaceService purshaceService;
 
 	@Operation(description = "Compra uma passagem, passe a data da compra, e o número do pedido, no client, passe um cliente que já tenha um cadastro, não esquecendo de informar o id dele, a mesma coisa para o destiny, passe todos os campos do destiny já cadastrado e o id dele.")
-	@ApiResponses(value = { 
+	@ApiResponses(value = {
 			@ApiResponse(responseCode = "200", description = "Compra realizada com sucesso."),
 			@ApiResponse(responseCode = "400", description = "Falha ao realizar a compra.") })
 	@PostMapping("/savepurshace")
@@ -36,14 +36,12 @@ public class PurshaceController {
 		return purshaceService.savePurshace(purshace);
 	}
 
-	
 	@Operation(description = "Lista todas as compras já feitas.")
 	@GetMapping("/allpurshaces")
 	public List<Purshace> List() {
 		return purshaceService.getAllPurshaces();
 	}
 
-	
 	@Operation(description = "Busca alguma compra informando o ID.")
 	@ApiResponses(value = {
 			@ApiResponse(responseCode = "200", description = "Retorna a compra buscada pelo ID."),
@@ -55,13 +53,15 @@ public class PurshaceController {
 		return ResponseEntity.ok(purshace);
 	}
 
-	
 	@Operation(description = "Atualiza uma compra passando todos os campos informados.")
 	@PutMapping("/{id}")
 	public ResponseEntity<Purshace> Update(@PathVariable Long id, @RequestBody Purshace purshaceUpdate) {
 		Purshace purshace = purshaceService.getPurshaceById(id);
 
 		purshace.setDatePurshace(purshaceUpdate.getDatePurshace());
+		purshace.setDateDeparture(purshaceUpdate.getDateDeparture());
+		purshace.setDateReturn(purshaceUpdate.getDateReturn());
+		purshace.setNumOrder(purshaceUpdate.getNumOrder());
 		purshace.setClient(purshaceUpdate.getClient());
 		purshace.setDestiny(purshaceUpdate.getDestiny());
 
@@ -70,7 +70,6 @@ public class PurshaceController {
 		return ResponseEntity.ok(purshace);
 	}
 
-	
 	@Operation(description = "Exclui uma compra pelo ID.")
 	@ApiResponses(value = {
 			@ApiResponse(responseCode = "200", description = "Compra ecluida com sucesso.")
