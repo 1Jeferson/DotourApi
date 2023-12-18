@@ -7,7 +7,7 @@
 
 # Início da Aplicação
 
-Para começar a utilizar a aplicação, dê start na aplicação no Spring Tools e acesse [Swagger UI](http://localhost:8080/swagger-ui/index.html#/) e explore os endpoints da API.
+Para começar a utilizar , dê start na aplicação no Spring Tools e acesse [Swagger UI](http://localhost:8080/swagger-ui/index.html#/) e explore os endpoints da API.
 
 ## ClientController
 
