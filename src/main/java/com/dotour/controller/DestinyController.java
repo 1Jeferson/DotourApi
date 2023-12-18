@@ -34,14 +34,14 @@ public class DestinyController {
         @ApiResponse(responseCode = "400", description = "Falha ao cadastrar um novo destino.")
     })
     @PostMapping("/savedestiny")
-    public Destiny Criar(@RequestBody Destiny destiny) {
+    public Destiny Register(@RequestBody Destiny destiny) {
         return destinyService.saveDestiny(destiny);
     }
 
 
     @Operation(description = "Obtém todos os destinos já cadastrados.")
     @GetMapping("/alldestinies")
-    public List<Destiny> Listar() {
+    public List<Destiny> List() {
         return destinyService.getAllDestinies();
     }
 
@@ -60,7 +60,7 @@ public class DestinyController {
 
     @Operation(description = "Atualiza um destino existente pelo ID, passando todos os campos que irão ser atualizados.")
     @PutMapping("/{id}")
-    public ResponseEntity<Destiny> Atualzar(@PathVariable Long id, @RequestBody Destiny destinyUpdate) {
+    public ResponseEntity<Destiny> Update(@PathVariable Long id, @RequestBody Destiny destinyUpdate) {
         Destiny destiny = destinyService.getDestinyById(id);
 
         destiny.setDestiny(destinyUpdate.getDestiny());
@@ -80,7 +80,7 @@ public class DestinyController {
         @ApiResponse(responseCode = "200", description = "Destino excluido pelo ID com sucesso.")
     })
     @DeleteMapping("/{id}")
-    public void Deletar(@PathVariable Long id) {
+    public void Delete(@PathVariable Long id) {
         destinyService.deleteById(id);
     }
     

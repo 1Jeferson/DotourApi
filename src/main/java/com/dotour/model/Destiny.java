@@ -1,10 +1,14 @@
 package com.dotour.model;
 
+import java.util.Set;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Destiny {
@@ -18,7 +22,6 @@ public class Destiny {
     @Column(name = "name_destiny", length = 100, nullable = false)
     private String destiny;
 
-
     private String location;
 
     private String description;
@@ -26,6 +29,8 @@ public class Destiny {
     @Column(name = "price_desitny")
     private Double price;
 
+    @OneToMany(mappedBy = "destiny", fetch = FetchType.LAZY)
+    private Set<Purshace> purshaces;
 
 
     public Long getId() {

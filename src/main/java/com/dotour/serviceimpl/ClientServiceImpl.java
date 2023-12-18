@@ -9,6 +9,8 @@ import com.dotour.model.Client;
 import com.dotour.repository.ClientRepository;
 import com.dotour.service.ClientService;
 
+import jakarta.transaction.Transactional;
+
 @Service
 public class ClientServiceImpl implements ClientService {
 
@@ -24,9 +26,10 @@ public class ClientServiceImpl implements ClientService {
 	}
 
 	@Override
+	@Transactional
 	public Client getClientById(Long id) {
 		
-		return clientrepositoy.findById(id).orElseThrow(() -> new RuntimeException("ID: " + id + "Not Found"));
+		return clientrepositoy.findById(id).orElse(null);
 	}
 
 	@Override
@@ -37,7 +40,7 @@ public class ClientServiceImpl implements ClientService {
 
 	@Override
 	public Client updateClient(Long id, Client clientUpdate) {
-		Client clientExists = clientrepositoy.findById(id).orElseThrow(() -> new RuntimeException("ID: " + id + "Not Found"));
+		Client clientExists = clientrepositoy.findById(id).orElseThrow(null);
 		clientExists.setName(clientUpdate.getName());
 		clientExists.setEmail(clientUpdate.getEmail());
 		clientExists.setPassword(clientUpdate.getPassword());

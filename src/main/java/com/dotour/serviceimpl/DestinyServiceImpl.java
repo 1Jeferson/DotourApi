@@ -9,6 +9,8 @@ import com.dotour.model.Destiny;
 import com.dotour.repository.DestinyRepository;
 import com.dotour.service.DestinyService;
 
+import jakarta.transaction.Transactional;
+
 @Service
 public class DestinyServiceImpl implements DestinyService {
 
@@ -22,9 +24,10 @@ public class DestinyServiceImpl implements DestinyService {
     }
 
     @Override
+    @Transactional
     public Destiny getDestinyById(Long id) {
         
-        return destinyRepository.findById(id).orElseThrow(() -> new RuntimeException("ID: " + id + "Not Found"));
+        return destinyRepository.findById(id).orElse(null);
     }
 
     @Override
@@ -35,7 +38,7 @@ public class DestinyServiceImpl implements DestinyService {
 
     @Override
     public Destiny updateDestiny(Long id, Destiny destinyUpdate) {
-        Destiny destinyExists = destinyRepository.findById(id).orElseThrow(() -> new RuntimeException("ID: " + id + "Not Found"));
+        Destiny destinyExists = destinyRepository.findById(id).orElse(null);
         destinyExists.setDestiny(destinyUpdate.getDestiny());
         destinyExists.setLocation(destinyUpdate.getLocation());
         destinyExists.setDescription(destinyUpdate.getDescription());
