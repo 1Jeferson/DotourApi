@@ -11,7 +11,7 @@
 Para começar a utilizar , dê start na aplicação no Spring Tools e acesse [Swagger UI](http://localhost:8080/swagger-ui/index.html#/) e explore os endpoints da API. Ou utilize o arquivo de dados do Insomnia já com os campos prenchidos.
 
 
-[![Run in Insomnia](https://insomnia.rest/images/run.svg)](insomnia://run/?label=Your%20API&uri=https://raw.githubusercontent.com/your-username/your-repo/master/Dados%20Insomnia/Dados_Api_Insomnia.json)
+[![Run in Insomnia](https://insomnia.rest/images/run.svg)](insomnia://run/?label=Your%20API&uri=https://raw.githubusercontent.com/1Jeferson/DotourApi/main/Dados%20Insomnia/Dados_Api_Insomnia.json)
 
 ## ClientController
 
