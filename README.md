@@ -1,6 +1,13 @@
+# Configurando o Ambiente de Desenvolvimento
+
+- ![SDK](https://img.shields.io/badge/SDK-JDK%2017-blue)
+- ![IDE](https://img.shields.io/badge/IDE-Spring%20Tools-green)
+- ![Banco de Dados](https://img.shields.io/badge/Banco%20de%20Dados-MySQL-orange)
+
+
 # Início da Aplicação
 
-Para começar a utilizar a aplicação, acesse [Swagger UI](http://localhost:8080/swagger-ui/index.html#/) e explore interativamente os endpoints da API.
+Para começar a utilizar a aplicação, dê start na aplicação no Spring Tools e acesse [Swagger UI](http://localhost:8080/swagger-ui/index.html#/) e explore os endpoints da API.
 
 ## ClientController
 
@@ -66,7 +73,7 @@ POST /destiny/savedestiny
 | `price` | `number` | Preço do destino |
 
 
-## Buscar um Destino
+### Buscar um Destino
 ```http
 GET /destiny/{id}
 ```
@@ -75,7 +82,7 @@ GET /destiny/{id}
 | `id` | `number` | Informar o Id do destino que deseja buscar |
 
 
-## Atualizar um Destino
+### Atualizar um Destino
 ```http
 PUT /destiny/{id}
 ```
@@ -87,7 +94,7 @@ PUT /destiny/{id}
 | `price` | `number` | Informe um novo preço |
 
 
-## Deletar um Destino
+### Deletar um Destino
 ```http
 DELETE /destiny/{id}
 ```
@@ -99,7 +106,7 @@ DELETE /destiny/{id}
 
 A classe `PurshaceController` é responsável por lidar com as solicitações HTTP relacionadas às operações de compra na aplicação. Ela tem relações com cliente e destino.
 
-## Comprar uma passagem
+### Comprar uma passagem
 
 ```http
 POST /purshace/savepurshace
