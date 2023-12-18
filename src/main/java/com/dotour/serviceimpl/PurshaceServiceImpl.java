@@ -40,6 +40,8 @@ public class PurshaceServiceImpl implements PurshaceService {
 	public Purshace UpdatePurshace(Long id, Purshace purshaceUpdate) {
 		Purshace purshaceExists = purshaceRepository.findById(id).orElse(null);
 		purshaceExists.setDatePurshace(purshaceUpdate.getDatePurshace());
+		purshaceExists.setDateDeparture(purshaceUpdate.getDateDeparture());
+		purshaceExists.setDateReturn(purshaceUpdate.getDateReturn());
 		purshaceExists.setClient(purshaceUpdate.getClient());
 		purshaceExists.setDestiny(purshaceUpdate.getDestiny());
 		return purshaceRepository.save(purshaceExists);

@@ -22,19 +22,22 @@ public class Purshace {
 	private Date datePurshace;
 
 	@Column
-	private int numOrder;
+	private Date dateDeparture;
 
+	@Column
+	private Date dateReturn;
+
+	@Column
+	private int numOrder;
 
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "client_id")
 	private Client client;
-	
-	@ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "destiny_id")
-    private Destiny destiny;
 
-	
-	
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "destiny_id")
+	private Destiny destiny;
+
 	public Long getId() {
 		return id;
 	}
@@ -53,6 +56,22 @@ public class Purshace {
 
 	public int getNumOrder() {
 		return numOrder;
+	}
+
+	public Date getDateDeparture() {
+		return dateDeparture;
+	}
+
+	public void setDateDeparture(Date dateDeparture) {
+		this.dateDeparture = dateDeparture;
+	}
+
+	public Date getDateReturn() {
+		return dateReturn;
+	}
+
+	public void setDateReturn(Date dateReturn) {
+		this.dateReturn = dateReturn;
 	}
 
 	public void setNumOrder(int numOrder) {
@@ -74,7 +93,5 @@ public class Purshace {
 	public void setDestiny(Destiny destiny) {
 		this.destiny = destiny;
 	}
-	
-	
-	
+
 }
