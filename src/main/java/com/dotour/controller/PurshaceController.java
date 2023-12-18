@@ -27,7 +27,7 @@ public class PurshaceController {
 	@Autowired
 	private PurshaceService purshaceService;
 
-	@Operation(description = "Compra uma passagem, passe a data da compra, e o número do pedido, no client, passe um cliente que já tenha um cadastro, não esquecendo de informar o id dele, a mesma coisa para o destiny, passe todos os campos do destiny já cadastrado e o id dele.")
+	@Operation(description = "Compra uma passagem, passe a data da compra, data ida, data de volta e o número do pedido, no client, passe um cliente que já tenha um cadastro para compar a passagem, não esquecendo de informar o id dele, a mesma coisa para o destiny passe um destino que irá ser feito a viagem, informe todos os campos do destiny já cadastrado e o id dele.")
 	@ApiResponses(value = {
 			@ApiResponse(responseCode = "200", description = "Compra realizada com sucesso."),
 			@ApiResponse(responseCode = "400", description = "Falha ao realizar a compra.") })
